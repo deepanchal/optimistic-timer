@@ -1,0 +1,27 @@
+body {
+    font-size: 20px;
+}
+
+button {
+    outline: 0;
+}
+
+.displayTime {
+    display: none;
+    font-size: 2em;
+}
+
+@media only screen and (max-width: 400px) {
+    .displayTime {
+        font-size: 1.3em;
+    }
+    #showMeterTime {
+        margin-top: 2px;
+        padding-top: 1px;
+        padding-bottom: 7px;
+    }
+}
+
+#number {
+    font-variant-numeric: tabular-nums;
+}
