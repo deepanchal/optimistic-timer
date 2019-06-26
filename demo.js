@@ -2,10 +2,15 @@ let x;
 let rangeVal = Number($('#customRange').val());
 document.getElementById('datePicker').valueAsDate = new Date();
 document.getElementById("timePicker").value = "23:59:59";
-// Set the date we're counting down to
-const countDownDate = new Date(2020, 11, 20, 10, 59, 59, 30).getTime();
+
+var countDownDate = new Date("Jun 28, 2019 23:59:59").getTime();
+// var countDownDate = new Date(2021, 1, 5, 15, 37, 25).getTime();
+
+console.log(countDownDate);
 
 $('#submit').on('click', function () {
+    
+
     stopTimer();
     startTimerFor(rangeVal);
     $('.displayTime').css('display', 'block');
@@ -25,10 +30,11 @@ function startTimerFor(num) {
         // console.log(countDownDate, now, distance);
 
         //Storing all values
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + (days * 24);
 
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let maxMin = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) * 60 + minutes;
+        let maxMin = (hours * 60) + minutes;
 
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
         let maxSeconds = (maxMin * 60) + seconds;
