@@ -50,6 +50,7 @@ button {
 
 #number {
     font-variant-numeric: tabular-nums;
+    color: #00b09b;
 }
 
 #timerStats {
