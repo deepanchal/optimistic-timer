@@ -1,31 +1,26 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
-let x;
-let rangeVal = Number($('#customRange').val());
+let x, rangeVal = Number($('#customRange').val());
 document.getElementById('datePicker').valueAsDate = new Date();
-document.getElementById("timePicker").value = "23:59:59";
 
-var countDownDate = new Date("Jun 28, 2019 23:59:59").getTime();
+let countDownDate = new Date("Jun 28, 2019 23:59:59").getTime();
 // var countDownDate = new Date(2021, 1, 5, 15, 37, 25).getTime();
 
 $('#submit').on('click', function () {
     let datePicker = new Date($('#datePicker').val());
     let timePicker = $('#timePicker').val();
-
-    let endDate = new Date(`${monthNames[datePicker.getMonth()]} ${datePicker.getDate() + 1}, ${datePicker.getFullYear()} ${timePicker}`);
-    countDownDate = endDate;
-    console.log(datePicker, timePicker);
-    console.log(endDate);
+    //Very Important line for extracting input and creating a new date
+    //Total hours wasted: 20
+    countDownDate = new Date(`${monthNames[datePicker.getMonth()]} ${datePicker.getDate() + 1}, ${datePicker.getFullYear()} ${timePicker}`);
 
     stopTimer();
     startTimerFor(rangeVal);
-    $('.displayTime').css('display', 'block');
+    $('#timerStats').css('display', 'block');
 });
 
 $('#customRange').on('input', function () {
     stopTimer();
-    $('.displayTime').css('display', 'block');
     rangeVal = Number($('#customRange').val());
     startTimerFor(rangeVal);
 });
@@ -73,11 +68,15 @@ function startTimerFor(num) {
             case 7:
                 $('.displayTime').text(`${maxMilli}000000000 picoseconds left`);
                 break;
-            
+
             default:
                 break;
         }
 
+        if (distance < 0) {
+            clearInterval(x);
+            $('.displayTime').text('Times Up :(');
+        }
     }, 1);
 }
 

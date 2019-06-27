@@ -10,31 +10,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div class="jumbotron bg-dark rounded-0 text-center">
+<body class="uimystic">
+    <div class="jumbotron uigreen rounded-0 text-center">
         <h1 class="text-light">The Ultimate Optimistic Timer</h1>
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-5 my-1">
+            <div class="col-lg-4 my-1">
                 <input type="date" name="date" id="datePicker" class="form-control">
             </div>
-            <div class="col-lg-5 my-1">
+            <div class="col-lg-4 my-1">
                 <input type="time" name="time" id="timePicker" class="form-control" value="23:59">
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 mt-1 mb-3">
-                <button class="btn btn-outline-primary btn-block" id="submit">How much time do I have??</button>
+                <button class="btn btn-success btn-block" id="submit">How much time do I have??</button>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-10 my-2">
-                <h2 class="text-center text-success py-1"> Optimotivistic Meter </h2>
-                <input type="range" class="custom-range" min="1" max="7" step="1" value="3" id="customRange">
-            </div>
-            <div class="col-12 text-center font-weight-bold m-2 py-4" id="showMeterTime">
-                <span class="displayTime" id="number"></span>
+        <div id="timerStats">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 my-2">
+                    <h2 class="text-center text-success py-1"> Optimotivistic Meter </h2>
+                    <input type="range" class="custom-range" min="1" max="7" step="1" value="3" id="customRange">
+                </div>
+                <div class="col-12 text-center font-weight-bold m-2 py-4" id="showMeterTime">
+                    <span class="displayTime" id="number"></span>
+                </div>
             </div>
         </div>
     </div>
