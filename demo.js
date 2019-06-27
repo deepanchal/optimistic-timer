@@ -1,3 +1,6 @@
+const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
 let x;
 let rangeVal = Number($('#customRange').val());
 document.getElementById('datePicker').valueAsDate = new Date();
@@ -6,10 +9,14 @@ document.getElementById("timePicker").value = "23:59:59";
 var countDownDate = new Date("Jun 28, 2019 23:59:59").getTime();
 // var countDownDate = new Date(2021, 1, 5, 15, 37, 25).getTime();
 
-console.log(countDownDate);
-
 $('#submit').on('click', function () {
-    
+    let datePicker = new Date($('#datePicker').val());
+    let timePicker = $('#timePicker').val();
+
+    let endDate = new Date(`${monthNames[datePicker.getMonth()]} ${datePicker.getDate() + 1}, ${datePicker.getFullYear()} ${timePicker}`);
+    countDownDate = endDate;
+    console.log(datePicker, timePicker);
+    console.log(endDate);
 
     stopTimer();
     startTimerFor(rangeVal);
@@ -26,7 +33,7 @@ $('#customRange').on('input', function () {
 function startTimerFor(num) {
     x = setInterval(() => {
         const now = new Date().getTime();
-        const distance = countDownDate - now;
+        const distance = countDownDate.getTime() - now;
         // console.log(countDownDate, now, distance);
 
         //Storing all values
@@ -77,38 +84,3 @@ function startTimerFor(num) {
 function stopTimer() {
     clearInterval(x);
 }
-
-// var x = setInterval(function () {
-
-//     // Get today's date and time
-//     var now = new Date().getTime();
-
-//     // Find the distance between now and the count down date
-//     var distance = countDownDate - now;
-
-//     // Time calculations for days, hours, minutes and seconds
-//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//     // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-//     // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//     var maxMin = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) * 60 + minutes;
-
-//     // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-//     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-//     var maxSeconds = (maxMin * 60) + seconds;
-
-//     var milliseconds = Math.floor((distance % 1000));
-//     var maxMilli = (maxSeconds * 1000) + milliseconds;
-//     var microseconds = distance;
-
-//     // Display the result in the element with id="demo"
-//     $('.displayTime').text(`${hours} h ${maxMin} m  ${maxSeconds} s   ${maxMilli} ms `);
-
-//     // If the count down is finished, write some text
-//     if (distance < 0) {
-//         clearInterval(x);
-//         $('.displayTime').text("Times Up");
-//     }
-// }, 1);
