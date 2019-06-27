@@ -1,7 +1,7 @@
+let countDownDate, timerVar;
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
-let countDownDate, x;
 let rangeVal = Number($('#customRange').val());
 document.getElementById('datePicker').valueAsDate = new Date();
 
@@ -24,10 +24,9 @@ $('#customRange').on('input', function () {
 });
 
 function startTimerFor(num) {
-    x = setInterval(() => {
+    timerVar = setInterval(() => {
         const now = new Date().getTime();
         const distance = countDownDate.getTime() - now;
-        // console.log(countDownDate, now, distance);
 
         //Storing all values
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -72,12 +71,12 @@ function startTimerFor(num) {
         }
 
         if (distance < 0) {
-            clearInterval(x);
+            clearInterval(timerVar);
             $('.displayTime').text('Times Up :(');
         }
     }, 1);
 }
 
 function stopTimer() {
-    clearInterval(x);
+    clearInterval(timerVar);
 }
