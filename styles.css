@@ -37,20 +37,20 @@ button {
     font-size: 2em;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
     .displayTime {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
     #showMeterTime {
         margin-top: 2px;
         padding-top: 1px;
-        padding-bottom: 7px;
+        padding-bottom: 20px;
     }
 }
 
 #number {
     font-variant-numeric: tabular-nums;
-    color: #00b09b;
+    color: #001;
 }
 
 #timerStats {

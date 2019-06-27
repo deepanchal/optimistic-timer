@@ -1,11 +1,9 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
-let x, rangeVal = Number($('#customRange').val());
+let countDownDate, x;
+let rangeVal = Number($('#customRange').val());
 document.getElementById('datePicker').valueAsDate = new Date();
-
-let countDownDate = new Date("Jun 28, 2019 23:59:59").getTime();
-// var countDownDate = new Date(2021, 1, 5, 15, 37, 25).getTime();
 
 $('#submit').on('click', function () {
     let datePicker = new Date($('#datePicker').val());
