@@ -11,7 +11,7 @@
 </head>
 
 <body class="uimystic mb-5">
-    <div class="jumbotron uigreen rounded-0 text-center">
+    <div class="jumbotron uiteal rounded-0 text-center">
         <h1 class="text-light">The Ultimate Optimistic Timer</h1>
     </div>
     <div class="container">
@@ -28,29 +28,33 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 mt-1 mb-3">
-                <button class="btn btn-success btn-block" id="submit">How much time do I have??</button>
+                <button class="btn btn-success btn-block" id="submit" data-toggle="modal"
+                    data-target="#exampleModal">How much time do I have??</button>
             </div>
         </div>
-        <div id="timerStats" class="mb-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 my-2">
-                    <h2 class="text-center text-dark py-1"> optimotivational Scale </h2>
-                    <input type="range" class="custom-range" min="1" max="7" step="1" value="3" id="customRange">
-                </div>
-                <div class="col-12 text-center font-weight-bold m-2 py-4" id="showMeterTime">
-                    <span class="displayTime" id="number"></span>
+        <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content uiteal">
+                    <div class="modal-body">
+                        <h2 class="modal-title text-center text-dark py-1"> optimotivational Scale </h2>
+                        <input type="range" class="custom-range" min="1" max="7" step="1" value="3" id="customRange">
+                        <div class="col-12 text-center font-weight-bold py-4" id="showMeterTime">
+                            <h4 class="text-center text-light">Don't Worry, You still have </h4>
+                            <span class="displayTime" id="number"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
 
